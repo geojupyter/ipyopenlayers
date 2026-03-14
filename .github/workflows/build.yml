@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v2
+      - uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
         with:
           python-version: ${{ matrix.python-version }}
 
