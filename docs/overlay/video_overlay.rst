@@ -24,7 +24,7 @@ Below is an example of how to use the `VideoOverlay` class to add a video to you
     # Add layer
     layer=RasterTileLayer()
     m.add_layer(layer)
-    
+
     # Display the map
     display(m)
 
@@ -33,7 +33,7 @@ Below is an example of how to use the `VideoOverlay` class to add a video to you
         position=[0, 0],
         video_url="https://www.mapbox.com/bites/00188/patricia_nasa.webm"
     )
-    
+
     # Add the VideoOverlay to the map
     m.add_overlay(video)
 

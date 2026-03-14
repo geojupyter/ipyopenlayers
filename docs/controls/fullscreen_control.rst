@@ -39,5 +39,3 @@ Attributes
 
 .. autoclass:: ipyopenlayers.openlayers.FullScreen
   :members:
-
-

@@ -39,4 +39,3 @@ The `RasterTileLayer` inherits attributes from the `TileLayer` class and provide
 
 .. autoclass:: ipyopenlayers.openlayers.RasterTileLayer
    :members:
-

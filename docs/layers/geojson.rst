@@ -207,5 +207,3 @@ Attributes
 
 .. autoclass:: ipyopenlayers.openlayers.GeoJSON
    :members:
-
-

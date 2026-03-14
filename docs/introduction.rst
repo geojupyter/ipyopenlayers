@@ -16,4 +16,3 @@ You can try ipyopenlayers below, or open many other live examples in a new brows
 
 .. image:: https://jupyterlite.rtfd.io/en/latest/_static/badge.svg
    :target: ./lite/lab/index.html
-

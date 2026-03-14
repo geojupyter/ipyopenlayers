@@ -25,7 +25,7 @@ Below is an example of how to use the `PopupOverlay` class to add a popup to you
     # Add layer
     layer=RasterTileLayer()
     m.add_layer(layer)
-    
+
     # Display the map
     display(m)
 
@@ -40,4 +40,3 @@ Attributes
 
 .. autoclass:: ipyopenlayers.openlayers.PopupOverlay
    :members:
-

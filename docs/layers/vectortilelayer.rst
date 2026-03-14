@@ -43,4 +43,3 @@ The `VectorTileLayer` provides several attributes to configure the layer:
 
 .. autoclass:: ipyopenlayers.openlayers.VectorTileLayer
    :members:
-

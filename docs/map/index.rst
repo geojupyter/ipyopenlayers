@@ -17,7 +17,7 @@ Example
     # Add layer
     layer=RasterTileLayer()
     m.add_layer(layer)
-    
+
 
     # Display the map
     m

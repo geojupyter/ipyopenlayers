@@ -26,7 +26,7 @@ Below is an example of how to use the `ImageOverlay` class to add an image to yo
     # Add layer
     layer=RasterTileLayer()
     m.add_layer(layer)
-    
+
     # Display the map
     display(m)
 

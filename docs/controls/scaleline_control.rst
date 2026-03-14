@@ -17,7 +17,7 @@ Example
 
    # Create a map with initial zoom level and center coordinates
    m = Map(center=[0, 0], zoom=2)
-   
+
    # Add layer
    layer=RasterTileLayer()
    m.add_layer(layer)

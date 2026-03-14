@@ -50,7 +50,7 @@ class TileLayer(Layer):
     min_zoom = Int(0).tag(sync=True)
     max_zoom = Int(18).tag(sync=True)
     source_format = Dict().tag(sync=True)
-    
+
 class GeoTIFFTileLayer(Layer):
     """GeoTIFFTileLayer class for WebGL-based GeoTIFF raster tiles.
 
@@ -87,7 +87,7 @@ class VectorTileLayer(TileLayer):
 
     _view_name = Unicode('VectorTileLayerView').tag(sync=True)
     _model_name = Unicode('VectorTileLayerModel').tag(sync=True)
-    style = Dict({}).tag(sync=True)  
+    style = Dict({}).tag(sync=True)
 
 class GeoJSON(Layer):
     """GeoJSON class for GeoJSON data layers.
@@ -128,7 +128,7 @@ class HeatmapLayer(Layer):
     radius = Int(8).tag(sync=True)
 
 
-class BaseOverlay(DOMWidget): 
+class BaseOverlay(DOMWidget):
     """Base class for overlays on the map.
 
     Attributes
@@ -136,7 +136,7 @@ class BaseOverlay(DOMWidget):
     position: list of float, default [0, 0]
         The position of the overlay on the map (it's center).
     """
-   
+
     _model_module = Unicode(module_name).tag(sync=True)
     _model_module_version = Unicode(module_version).tag(sync=True)
     _view_module = Unicode(module_name).tag(sync=True)
@@ -146,7 +146,7 @@ class BaseOverlay(DOMWidget):
 class ImageOverlay (BaseOverlay):
     """ImageOverlay class.
 
-     Image layer from a local or remote image file. 
+     Image layer from a local or remote image file.
 
     Attributes
     ----------
@@ -162,7 +162,7 @@ class ImageOverlay (BaseOverlay):
 class VideoOverlay (BaseOverlay):
     """VideoOverlay class.
 
-     Video layer from a local or remote video file. 
+     Video layer from a local or remote video file.
 
     Attributes
     ----------
@@ -201,13 +201,13 @@ class BaseControl(DOMWidget):
     _model_module_version = Unicode(module_version).tag(sync=True)
     _view_module = Unicode(module_name).tag(sync=True)
     _view_module_version = Unicode(module_version).tag(sync=True)
-    
+
 class ZoomSlider(BaseControl):
     """ZoomSlider class for adding a zoom slider control to the map.
     """
     _view_name = Unicode('ZoomSliderView').tag(sync=True)
     _model_name = Unicode('ZoomSliderModel').tag(sync=True)
-   
+
 class FullScreen(BaseControl):
     """FullScreen class, with Control as parent class.
 
@@ -250,7 +250,7 @@ class Map(DOMWidget):
         The current center of the map.
     zoom: float, default 0
         The current zoom value of the map."""
-    
+
     _model_name = Unicode('MapModel').tag(sync=True)
     _model_module = Unicode(module_name).tag(sync=True)
     _model_module_version = Unicode(module_version).tag(sync=True)
@@ -288,7 +288,7 @@ class Map(DOMWidget):
     def __repr__(self):
         """Return a string representation of the Map instance."""
         return f"Map(center={self.center}, zoom={self.zoom})"
-    
+
     def add_layer(self, layer):
         """Add a layer on the map.
 
@@ -318,7 +318,7 @@ class Map(DOMWidget):
             The layer to remove.
         """
         self.layers = [x for x in self.layers if x != layer]
-    
+
     def remove_overlay(self, overlay):
         """Remove an overlay from the map.
 
@@ -348,7 +348,7 @@ class Map(DOMWidget):
             The control to remove.
         """
         self.controls = [x for x in self.controls if x != control]
-    
+
 
     def clear_layers(self):
         """Remove all layers from the map.
@@ -367,6 +367,3 @@ class Map(DOMWidget):
         """Add a click event listener.
         """
         self._click_callbacks.register_callback(callback, remove=remove)
-
-
-

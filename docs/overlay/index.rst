@@ -12,6 +12,3 @@ In ipyopenlayers, overlays are used to add additional content on top of the map,
 
 .. automodule:: ipyopenlayers.openlayers.BaseOverlay
    :members:
-
-
-

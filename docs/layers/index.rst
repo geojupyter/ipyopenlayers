@@ -5,14 +5,14 @@ ipyopenlayers provides several types of layers for visualizing geographic data i
 
 .. toctree::
    :maxdepth: 1
-   
+
    tilelayer
    rastertilelayer
    vectortilelayer
    heatmap
    geojson
    geotiff
-   
+
 
 .. automodule:: ipyopenlayers.openlayers.Layer
    :members:

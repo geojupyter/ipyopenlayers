@@ -5,10 +5,10 @@
 # Distributed under the terms of the Modified BSD License.
 
 import pytest
-from traitlets import TraitError  
+from traitlets import TraitError
 from ..openlayers import (
-    Map, RasterTileLayer, GeoTIFFTileLayer, VectorTileLayer, 
-    GeoJSON, HeatmapLayer, ImageOverlay, VideoOverlay, 
+    Map, RasterTileLayer, GeoTIFFTileLayer, VectorTileLayer,
+    GeoJSON, HeatmapLayer, ImageOverlay, VideoOverlay,
     PopupOverlay, ZoomSlider, FullScreen, ScaleLine, MousePosition
 )
 
