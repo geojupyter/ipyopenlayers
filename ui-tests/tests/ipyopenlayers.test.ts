@@ -50,7 +50,7 @@ const testCellOutputs = async (page: IJupyterLabPageFixture, tmpPath: string, th
     await page.notebook.save();
 
     for (let c = 0; c < numCellImages; ++c) {
-      expect(results[c]).toMatchSnapshot(getCaptureImageName(contextPrefix, notebook, c), {threshold: 0.3, maxDiffPixels: 0.03});
+      expect(results[c]).toMatchSnapshot(getCaptureImageName(contextPrefix, notebook, c), {threshold: 0.3, maxDiffPixelRatio: 0.03});
     }
 
     await page.notebook.close(true);
@@ -91,7 +91,7 @@ const testPlotUpdates = async (page: IJupyterLabPageFixture, tmpPath: string, th
     await page.notebook.save();
 
     for (let i = 0; i < cellCount; i++) {
-      expect(results[i]).toMatchSnapshot(getCaptureImageName(contextPrefix, notebook, i), {threshold: 0.3, maxDiffPixels: 0.03});
+      expect(results[i]).toMatchSnapshot(getCaptureImageName(contextPrefix, notebook, i), {threshold: 0.3, maxDiffPixelRatio: 0.03});
     }
 
     await page.notebook.close(true);
