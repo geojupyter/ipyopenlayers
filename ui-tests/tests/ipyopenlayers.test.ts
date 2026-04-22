@@ -82,6 +82,7 @@ const testPlotUpdates = async (page: IJupyterLabPageFixture, tmpPath: string, th
         // Always get first cell output which must contain the plot
         const cell = await page.notebook.getCellOutput(0);
         if (cell) {
+          await new Promise((_) => setTimeout(_, 1000));
           results.push(await cell.screenshot());
           cellCount++;
         }
