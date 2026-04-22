@@ -12,6 +12,7 @@ dependencies:
   - jupyter-sphinx
   - nbsphinx
   - nbsphinx-link
+  - docutils<0.21
   - python-build
   - branca
   - requests
