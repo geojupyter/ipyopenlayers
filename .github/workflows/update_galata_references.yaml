@@ -4,13 +4,11 @@ on:
   issue_comment:
     types: [created, edited]
 
-permissions:
-  contents: write
-  pull-requests: write
-
 defaults:
   run:
     shell: bash -l {0}
+
+permissions: {}
 
 jobs:
   update-reference-screenshots:
@@ -22,6 +20,9 @@ jobs:
         github.event.issue.author_association == 'MEMBER'
       ) && github.event.issue.pull_request && contains(github.event.comment.body, 'please update snapshots')
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout
