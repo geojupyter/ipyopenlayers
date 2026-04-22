@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6.0.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -52,7 +52,7 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: jlpm install
 
-      - uses: jupyterlab/maintainer-tools/.github/actions/update-snapshots@main
+      - uses: jupyterlab/maintainer-tools/.github/actions/update-snapshots@v1
         with:
           npm_client: jlpm
           github_token: ${{ secrets.GITHUB_TOKEN }}
