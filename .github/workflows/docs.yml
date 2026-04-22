@@ -1,0 +1,26 @@
+name: Docs
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: '*'
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - uses: mamba-org/setup-micromamba@d7c9bd84e824b79d2af72a2d4196c7f4300d3476  # v3.0.0
+        with:
+          environment-file: docs/build-environment.yml
+
+      - name: Build
+        run: sphinx-build . output
+        working-directory: docs
