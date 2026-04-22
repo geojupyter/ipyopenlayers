@@ -7,17 +7,18 @@ dependencies:
   - yarn~=3.0
   - jupyterlab~=4.0
   - jupyter-packaging~=0.12
+  - jupyterlite-sphinx
+  - jupyterlite-xeus
   - micromamba
   - sphinx
   - jupyter-sphinx
   - nbsphinx
   - nbsphinx-link
+  - docutils<0.21
   - python-build
   - branca
   - requests
   - hatch
   - pydata-sphinx-theme
-  - jupyterlite-sphinx
   - pip:
-    - jupyterlite-xeus==0.1.11
     - ..
