@@ -36,10 +36,14 @@ classifiers = [
 ]
 dependencies = [
     "ipywidgets>=8.0.0",
-    "pre-commit>=4.3.0",
     "traitlets",
 ]
 version = "0.2.1"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+]
 
 [project.optional-dependencies]
 docs = [
