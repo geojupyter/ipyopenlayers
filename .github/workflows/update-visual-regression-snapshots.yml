@@ -1,4 +1,4 @@
-name: Update Galata References
+name: Update visual regression expected screenshots
 
 on:
   issue_comment:
@@ -11,8 +11,8 @@ defaults:
 permissions: {}
 
 jobs:
-  update-reference-screenshots:
-    name: Update Galata References
+  update-expected-screenshots:
+    name: Update screenshots
     if: github.event.issue.pull_request && contains(github.event.comment.body, 'please update snapshots')
     runs-on: ubuntu-latest
     permissions:
