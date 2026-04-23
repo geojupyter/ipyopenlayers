@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "start": "jupyter lab --config jupyter_server_config.py",
-    "test": "playwright test",
-    "test:update": "playwright test --update-snapshots",
-    "test:debug": "PWDEBUG=1 playwright test"
+    "test": "playwright test --browser chromium",
+    "test:update": "playwright test --browser chromium--update-snapshots",
+    "test:debug": "PWDEBUG=1 playwright test --browser chromium"
   },
   "author": "ipyopenlayers",
   "license": "Apache-2.0",
