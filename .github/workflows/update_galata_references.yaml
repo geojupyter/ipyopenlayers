@@ -13,12 +13,7 @@ permissions: {}
 jobs:
   update-reference-screenshots:
     name: Update Galata References
-    if: >
-      (
-        github.event.issue.author_association == 'OWNER' ||
-        github.event.issue.author_association == 'COLLABORATOR' ||
-        github.event.issue.author_association == 'MEMBER'
-      ) && github.event.issue.pull_request && contains(github.event.comment.body, 'please update snapshots')
+    if: github.event.issue.pull_request && contains(github.event.comment.body, 'please update snapshots')
     runs-on: ubuntu-latest
     permissions:
       contents: write
