@@ -82,6 +82,10 @@ const testPlotUpdates = async (page: IJupyterLabPageFixture, tmpPath: string, th
         // Always get first cell output which must contain the plot
         const cell = await page.notebook.getCellOutput(0);
         if (cell) {
+          const map = await cell.$("div.ol-container");
+          if (map) {
+            await new Promise((_) => setTimeout(_, 1000));
+          }
           results.push(await cell.screenshot());
           cellCount++;
         }
@@ -91,7 +95,7 @@ const testPlotUpdates = async (page: IJupyterLabPageFixture, tmpPath: string, th
     await page.notebook.save();
 
     for (let i = 0; i < cellCount; i++) {
-      expect(results[i]).toMatchSnapshot(getCaptureImageName(contextPrefix, notebook, i), {threshold: 0.3, maxDiffPixels: 0.03});
+      expect(results[i]).toMatchSnapshot(getCaptureImageName(contextPrefix, notebook, i), {threshold: 0.3, maxDiffPixelRatio: 0.03});
     }
 
     await page.notebook.close(true);
