@@ -123,3 +123,8 @@ regex = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)((?P<channel>a|b|rc|
 [tool.tbump.git]
 message_template = "Bump to {new_version}"
 tag_template = "v{new_version}"
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = [
+    "E703",  # Forbid "useless" semicolons -- semicolons are meaningful in Jupyter Notebooks
+]
