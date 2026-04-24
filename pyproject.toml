@@ -124,6 +124,59 @@ regex = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)((?P<channel>a|b|rc|
 message_template = "Bump to {new_version}"
 tag_template = "v{new_version}"
 
+[tool.ruff]
+select = ["ALL"]
+
+# Rules with violations that can't be autofixed:
+ignore = [
+   "A001",   	# builtin-variable-shadowing
+   "ANN001", 	# missing-type-function-argument
+   "ANN002", 	# missing-type-args
+   "ANN003", 	# missing-type-kwargs
+   "ANN201",  # missing-return-type-undocumented-public-function
+   "ANN202", 	# missing-return-type-private-function
+   "ANN204", 	# missing-return-type-special-method
+   "ARG002", 	# unused-method-argument
+   "ARG005", 	# unused-lambda-argument
+   "D100",   	# undocumented-public-module
+   "D102",   	# undocumented-public-method
+   "D103",   	# undocumented-public-function
+   "D104",   	# undocumented-public-package
+   "D107",   	# undocumented-public-init
+   "D205",   	# missing-blank-line-after-summary
+   "D400",   	# missing-trailing-period
+   "D401",   	# non-imperative-mood
+   "D415",   	# missing-terminal-punctuation
+   "D417",   	# undocumented-param
+   "E402",   	# module-import-not-at-top-of-file
+   "E501",   	# line-too-long
+   "ERA001", 	# commented-out-code
+   "EXE001", 	# shebang-not-executable
+   "F401",   	# unused-import
+   "F403",   	# undefined-local-with-import-star
+   "F821",   	# undefined-name
+   "FBT002", 	# boolean-default-value-positional-argument
+   "FBT003", 	# boolean-positional-value-in-call
+   "G002",   	# logging-percent-format
+   "INP001", 	# implicit-namespace-package
+   "N816",   	# mixed-case-variable-in-global-scope
+   "PGH004", 	# blanket-noqa
+   "PLC0415",	# import-outside-top-level
+   "PLR2004",	# magic-value-comparison
+   "PTH110", 	# os-path-exists
+   "PTH118", 	# os-path-join
+   "PTH120", 	# os-path-dirname
+   "PTH123", 	# builtin-open
+   "RUF005", 	# collection-literal-concatenation
+   "S101",   	# assert
+   "S102",   	# exec-builtin
+   "SLF001", 	# private-member-access
+   "T201",   	# print
+   "TID252", 	# relative-imports
+   "UP008",  	# super-call-with-parameters
+   "UP031",  	# printf-string-formatting
+]
+
 [tool.ruff.lint.per-file-ignores]
 "*.ipynb" = [
     "E703",  # Forbid "useless" semicolons -- semicolons are meaningful in Jupyter Notebooks

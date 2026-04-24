@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-# coding: utf-8
 
 # Copyright (c) QuantStack.
 # Distributed under the terms of the Modified BSD License.
 
-from ipywidgets import DOMWidget, Widget, widget_serialization, CallbackDispatcher
-from traitlets import Unicode, List, Instance, CFloat, Bool, Dict, Int, Float
+from ipywidgets import CallbackDispatcher, DOMWidget, Widget, widget_serialization
+from traitlets import Bool, CFloat, Dict, Float, Instance, Int, List, Unicode
+
 from ._frontend import module_name, module_version
 
 def_loc = [0.0, 0.0]
@@ -41,6 +41,7 @@ class TileLayer(Layer):
         Maximum zoom level for the layer.
     source_format: dict
         Additional format options for the tile source.
+
     """
 
     url = Unicode("https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png").tag(sync=True)
@@ -59,6 +60,7 @@ class GeoTIFFTileLayer(Layer):
     ----------
     url: str, default ""
         The URL for the WebGL-based GeoTIFF tiles.
+
     """
 
     _model_name = Unicode("GeoTIFFTileLayerModel").tag(sync=True)
@@ -85,6 +87,7 @@ class VectorTileLayer(TileLayer):
     ----------
     style: dict
         Style options for vector tiles.
+
     """
 
     _view_name = Unicode("VectorTileLayerView").tag(sync=True)
@@ -103,6 +106,7 @@ class GeoJSON(Layer):
         Style options for the GeoJSON data.
     visible: bool, default True
         Whether the layer is visible or not.
+
     """
 
     _view_name = Unicode("OpenLayersGeoJSONView").tag(sync=True)
@@ -123,6 +127,7 @@ class HeatmapLayer(Layer):
         Specifies the blur radius for the heatmap The blur controls the smoothness of the heatmap, with higher values creating more diffuse effects
     radius: int, default 8
         The radius of each point in the heatmap, affects how large each data point appears on the map
+
     """
 
     _view_name = Unicode("HeatmapLayerView").tag(sync=True)
@@ -139,6 +144,7 @@ class BaseOverlay(DOMWidget):
     ----------
     position: list of float, default [0, 0]
         The position of the overlay on the map (it's center).
+
     """
 
     _model_module = Unicode(module_name).tag(sync=True)
@@ -159,6 +165,7 @@ class ImageOverlay(BaseOverlay):
         Url to the local or remote image file.
     position: list, default [0., 0]
         center of the image.
+
     """
 
     _view_name = Unicode("ImageOverlayView").tag(sync=True)
@@ -177,6 +184,7 @@ class VideoOverlay(BaseOverlay):
         Url to the local or remote image file.
     position: list, default [0., 0]
         center of the video.
+
     """
 
     _view_name = Unicode("VideoOverlayView").tag(sync=True)
@@ -194,6 +202,7 @@ class PopupOverlay(BaseOverlay):
         Content to display.
     position: list, default [0., 0]
         position of the popup.
+
     """
 
     _view_name = Unicode("PopupOverlayView").tag(sync=True)
@@ -263,7 +272,9 @@ class Map(DOMWidget):
     center: list, default [0, 0]
         The current center of the map.
     zoom: float, default 0
-        The current zoom value of the map."""
+        The current zoom value of the map.
+
+    """
 
     _model_name = Unicode("MapModel").tag(sync=True)
     _model_module = Unicode(module_name).tag(sync=True)
@@ -288,6 +299,7 @@ class Map(DOMWidget):
             The initial center of the map.
         zoom: float, optional
             The initial zoom level of the map.
+
         """
         super().__init__(**kwargs)
         self.on_msg(self._handle_mouse_events)
@@ -307,6 +319,7 @@ class Map(DOMWidget):
         ----------
         layer: Layer instance
             The new layer to add.
+
         """
         self.layers = self.layers + [layer]
 
@@ -317,6 +330,7 @@ class Map(DOMWidget):
         ----------
         overlay: BaseOverlay instance
             The overlay to add.
+
         """
         self.overlays = self.overlays + [overlay]
 
@@ -327,6 +341,7 @@ class Map(DOMWidget):
         ----------
         layer: Layer instance
             The layer to remove.
+
         """
         self.layers = [x for x in self.layers if x != layer]
 
@@ -337,6 +352,7 @@ class Map(DOMWidget):
         ----------
         overlay: BaseOverlay instance
             The overlay to remove.
+
         """
         self.overlays = [x for x in self.overlays if x != overlay]
 
@@ -347,6 +363,7 @@ class Map(DOMWidget):
         ----------
         control: Control instance
             The new control to add.
+
         """
         self.controls = self.controls + [control]
 
@@ -357,6 +374,7 @@ class Map(DOMWidget):
         ----------
         control: Control instance
             The control to remove.
+
         """
         self.controls = [x for x in self.controls if x != control]
 

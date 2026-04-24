@@ -1,11 +1,9 @@
 #!/usr/bin/env python
-# coding: utf-8
 
 # Copyright (c) QuantStack.
 # Distributed under the terms of the Modified BSD License.
 
 import pytest
-
 from ipykernel.comm import Comm
 from ipywidgets import Widget
 
@@ -46,7 +44,7 @@ def mock_comm():
     _widget_attrs["_ipython_display_"] = Widget._ipython_display_
 
     def raise_not_implemented(*args, **kwargs):
-        raise NotImplementedError()
+        raise NotImplementedError
 
     Widget._ipython_display_ = raise_not_implemented
 

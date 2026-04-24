@@ -1,21 +1,21 @@
 #!/usr/bin/env python
-# coding: utf-8
 
 # Copyright (c) QuantStack.
 # Distributed under the terms of the Modified BSD License.
 
 import pytest
 from traitlets import TraitError
+
 from ..openlayers import (
-    Map,
-    RasterTileLayer,
-    GeoTIFFTileLayer,
-    VectorTileLayer,
-    ImageOverlay,
-    ZoomSlider,
     FullScreen,
-    ScaleLine,
+    GeoTIFFTileLayer,
+    ImageOverlay,
+    Map,
     MousePosition,
+    RasterTileLayer,
+    ScaleLine,
+    VectorTileLayer,
+    ZoomSlider,
 )
 
 
