@@ -12,15 +12,15 @@ def_loc = [0.0, 0.0]
 
 
 class Layer(Widget):
-    """Base class for all layers on the map.
-    """
+    """Base class for all layers on the map."""
 
-    _model_name = Unicode('LayerModel').tag(sync=True)
+    _model_name = Unicode("LayerModel").tag(sync=True)
     _model_module = Unicode(module_name).tag(sync=True)
     _model_module_version = Unicode(module_version).tag(sync=True)
-    _view_name = Unicode('LayerView').tag(sync=True)
+    _view_name = Unicode("LayerView").tag(sync=True)
     _view_module = Unicode(module_name).tag(sync=True)
     _view_module_version = Unicode(module_version).tag(sync=True)
+
 
 class TileLayer(Layer):
     """The TileLayer class serves as the foundational class for both raster and vector tile layers.
@@ -43,13 +43,14 @@ class TileLayer(Layer):
         Additional format options for the tile source.
     """
 
-    url = Unicode('https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png').tag(sync=True)
+    url = Unicode("https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png").tag(sync=True)
     attribution = Unicode("").tag(sync=True)
     opacity = Float(1.0, min=0.0, max=1.0).tag(sync=True)
     visible = Bool(True).tag(sync=True)
     min_zoom = Int(0).tag(sync=True)
     max_zoom = Int(18).tag(sync=True)
     source_format = Dict().tag(sync=True)
+
 
 class GeoTIFFTileLayer(Layer):
     """GeoTIFFTileLayer class for WebGL-based GeoTIFF raster tiles.
@@ -59,9 +60,10 @@ class GeoTIFFTileLayer(Layer):
     url: str, default ""
         The URL for the WebGL-based GeoTIFF tiles.
     """
-    _model_name = Unicode('GeoTIFFTileLayerModel').tag(sync=True)
-    _view_name = Unicode('GeoTIFFTileLayerView').tag(sync=True)
-    url = Unicode('').tag(sync=True)
+
+    _model_name = Unicode("GeoTIFFTileLayerModel").tag(sync=True)
+    _view_name = Unicode("GeoTIFFTileLayerView").tag(sync=True)
+    url = Unicode("").tag(sync=True)
 
 
 class RasterTileLayer(TileLayer):
@@ -71,8 +73,8 @@ class RasterTileLayer(TileLayer):
     raster tiles using WebGL.
     """
 
-    _view_name = Unicode('RasterTileLayerView').tag(sync=True)
-    _model_name = Unicode('RasterTileLayerModel').tag(sync=True)
+    _view_name = Unicode("RasterTileLayerView").tag(sync=True)
+    _model_name = Unicode("RasterTileLayerModel").tag(sync=True)
 
 
 class VectorTileLayer(TileLayer):
@@ -85,9 +87,10 @@ class VectorTileLayer(TileLayer):
         Style options for vector tiles.
     """
 
-    _view_name = Unicode('VectorTileLayerView').tag(sync=True)
-    _model_name = Unicode('VectorTileLayerModel').tag(sync=True)
+    _view_name = Unicode("VectorTileLayerView").tag(sync=True)
+    _model_name = Unicode("VectorTileLayerModel").tag(sync=True)
     style = Dict({}).tag(sync=True)
+
 
 class GeoJSON(Layer):
     """GeoJSON class for GeoJSON data layers.
@@ -102,8 +105,8 @@ class GeoJSON(Layer):
         Whether the layer is visible or not.
     """
 
-    _view_name = Unicode('OpenLayersGeoJSONView').tag(sync=True)
-    _model_name = Unicode('OpenLayersGeoJSONModel').tag(sync=True)
+    _view_name = Unicode("OpenLayersGeoJSONView").tag(sync=True)
+    _model_name = Unicode("OpenLayersGeoJSONModel").tag(sync=True)
     data = Dict({}).tag(sync=True)
     style = Dict({}).tag(sync=True)
     visible = Bool(True).tag(sync=True)
@@ -121,10 +124,11 @@ class HeatmapLayer(Layer):
     radius: int, default 8
         The radius of each point in the heatmap, affects how large each data point appears on the map
     """
-    _view_name = Unicode('HeatmapLayerView').tag(sync=True)
-    _model_name = Unicode('HeatmapLayerModel').tag(sync=True)
-    points= List([]).tag(sync=True)
-    blur =Int(15).tag(sync=True)
+
+    _view_name = Unicode("HeatmapLayerView").tag(sync=True)
+    _model_name = Unicode("HeatmapLayerModel").tag(sync=True)
+    points = List([]).tag(sync=True)
+    blur = Int(15).tag(sync=True)
     radius = Int(8).tag(sync=True)
 
 
@@ -143,7 +147,8 @@ class BaseOverlay(DOMWidget):
     _view_module_version = Unicode(module_version).tag(sync=True)
     position = List([0, 0]).tag(sync=True)
 
-class ImageOverlay (BaseOverlay):
+
+class ImageOverlay(BaseOverlay):
     """ImageOverlay class.
 
      Image layer from a local or remote image file.
@@ -155,11 +160,13 @@ class ImageOverlay (BaseOverlay):
     position: list, default [0., 0]
         center of the image.
     """
-    _view_name = Unicode('ImageOverlayView').tag(sync=True)
-    _model_name = Unicode('ImageOverlayModel').tag(sync=True)
-    image_url = Unicode('').tag(sync=True)
 
-class VideoOverlay (BaseOverlay):
+    _view_name = Unicode("ImageOverlayView").tag(sync=True)
+    _model_name = Unicode("ImageOverlayModel").tag(sync=True)
+    image_url = Unicode("").tag(sync=True)
+
+
+class VideoOverlay(BaseOverlay):
     """VideoOverlay class.
 
      Video layer from a local or remote video file.
@@ -171,11 +178,13 @@ class VideoOverlay (BaseOverlay):
     position: list, default [0., 0]
         center of the video.
     """
-    _view_name = Unicode('VideoOverlayView').tag(sync=True)
-    _model_name = Unicode('VideoOverlayModel').tag(sync=True)
-    video_url = Unicode('').tag(sync=True)
 
-class PopupOverlay (BaseOverlay):
+    _view_name = Unicode("VideoOverlayView").tag(sync=True)
+    _model_name = Unicode("VideoOverlayModel").tag(sync=True)
+    video_url = Unicode("").tag(sync=True)
+
+
+class PopupOverlay(BaseOverlay):
     """PopupOverlay class.
 
 
@@ -186,9 +195,11 @@ class PopupOverlay (BaseOverlay):
     position: list, default [0., 0]
         position of the popup.
     """
-    _view_name = Unicode('PopupOverlayView').tag(sync=True)
-    _model_name = Unicode('PopupOverlayModel').tag(sync=True)
-    popup_content = Unicode('').tag(sync=True)
+
+    _view_name = Unicode("PopupOverlayView").tag(sync=True)
+    _model_name = Unicode("PopupOverlayModel").tag(sync=True)
+    popup_content = Unicode("").tag(sync=True)
+
 
 class BaseControl(DOMWidget):
     """BaseControl abstract class.
@@ -197,16 +208,19 @@ class BaseControl(DOMWidget):
     UI components on top of the Map.
 
     """
+
     _model_module = Unicode(module_name).tag(sync=True)
     _model_module_version = Unicode(module_version).tag(sync=True)
     _view_module = Unicode(module_name).tag(sync=True)
     _view_module_version = Unicode(module_version).tag(sync=True)
 
+
 class ZoomSlider(BaseControl):
-    """ZoomSlider class for adding a zoom slider control to the map.
-    """
-    _view_name = Unicode('ZoomSliderView').tag(sync=True)
-    _model_name = Unicode('ZoomSliderModel').tag(sync=True)
+    """ZoomSlider class for adding a zoom slider control to the map."""
+
+    _view_name = Unicode("ZoomSliderView").tag(sync=True)
+    _model_name = Unicode("ZoomSliderModel").tag(sync=True)
+
 
 class FullScreen(BaseControl):
     """FullScreen class, with Control as parent class.
@@ -214,23 +228,23 @@ class FullScreen(BaseControl):
     A control which contains a button that will put the Map in
     full-screen when clicked.
     """
-    _view_name = Unicode('FullScreenView').tag(sync=True)
-    _model_name = Unicode('FullScreenModel').tag(sync=True)
+
+    _view_name = Unicode("FullScreenView").tag(sync=True)
+    _model_name = Unicode("FullScreenModel").tag(sync=True)
 
 
 class ScaleLine(BaseControl):
-    """ScaleLine class for adding a scale line control to the map.
-    """
-    _view_name = Unicode('ScaleLineView').tag(sync=True)
-    _model_name = Unicode('ScaleLineModel').tag(sync=True)
+    """ScaleLine class for adding a scale line control to the map."""
 
+    _view_name = Unicode("ScaleLineView").tag(sync=True)
+    _model_name = Unicode("ScaleLineModel").tag(sync=True)
 
 
 class MousePosition(BaseControl):
-    """MousePosition class for displaying the mouse position on the map.
-    """
-    _view_name = Unicode('MousePositionView').tag(sync=True)
-    _model_name = Unicode('MousePositionModel').tag(sync=True)
+    """MousePosition class for displaying the mouse position on the map."""
+
+    _view_name = Unicode("MousePositionView").tag(sync=True)
+    _model_name = Unicode("MousePositionModel").tag(sync=True)
 
 
 class Map(DOMWidget):
@@ -251,22 +265,19 @@ class Map(DOMWidget):
     zoom: float, default 0
         The current zoom value of the map."""
 
-    _model_name = Unicode('MapModel').tag(sync=True)
+    _model_name = Unicode("MapModel").tag(sync=True)
     _model_module = Unicode(module_name).tag(sync=True)
     _model_module_version = Unicode(module_version).tag(sync=True)
-    _view_name = Unicode('MapView').tag(sync=True)
+    _view_name = Unicode("MapView").tag(sync=True)
     _view_module = Unicode(module_name).tag(sync=True)
     _view_module_version = Unicode(module_version).tag(sync=True)
 
     center = List(def_loc).tag(sync=True, o=True)
     zoom = CFloat(0).tag(sync=True, o=True)
     layers = List(Instance(Layer)).tag(sync=True, **widget_serialization)
-    overlays=List(Instance(BaseOverlay)).tag(sync=True, **widget_serialization)
-    controls=List(Instance(BaseControl)).tag(sync=True, **widget_serialization)
+    overlays = List(Instance(BaseOverlay)).tag(sync=True, **widget_serialization)
+    controls = List(Instance(BaseControl)).tag(sync=True, **widget_serialization)
     _click_callbacks = Instance(CallbackDispatcher, ())
-
-
-
 
     def __init__(self, center=None, zoom=None, **kwargs):
         """Initialize the Map with optional center and zoom level.
@@ -349,21 +360,16 @@ class Map(DOMWidget):
         """
         self.controls = [x for x in self.controls if x != control]
 
-
     def clear_layers(self):
-        """Remove all layers from the map.
-
-        """
+        """Remove all layers from the map."""
         self.layers = []
 
     def _handle_mouse_events(self, _, content, buffers):
-        """Handle mouse events and trigger click callbacks.
-        """
+        """Handle mouse events and trigger click callbacks."""
         event_type = content.get("type", "")
         if event_type == "click":
             self._click_callbacks(**content)
 
     def on_click(self, callback, remove=False):
-        """Add a click event listener.
-        """
+        """Add a click event listener."""
         self._click_callbacks.register_callback(callback, remove=remove)
