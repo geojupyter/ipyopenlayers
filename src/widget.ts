@@ -47,7 +47,6 @@ export class MapModel extends DOMWidgetModel {
       layers: [],
       controls: [],
       overlays: [],
-      zoom: 2,
       center: DEFAULT_LOCATION,
     };
   }

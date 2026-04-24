@@ -248,7 +248,7 @@ class Map(DOMWidget):
         The list of Overlays that are currently on the map.
     center: list, default [0, 0]
         The current center of the map.
-    zoom: float, default 2
+    zoom: float, default 0
         The current zoom value of the map."""
 
     _model_name = Unicode('MapModel').tag(sync=True)
@@ -259,7 +259,7 @@ class Map(DOMWidget):
     _view_module_version = Unicode(module_version).tag(sync=True)
 
     center = List(def_loc).tag(sync=True, o=True)
-    zoom = CFloat(2).tag(sync=True, o=True)
+    zoom = CFloat(0).tag(sync=True, o=True)
     layers = List(Instance(Layer)).tag(sync=True, **widget_serialization)
     overlays=List(Instance(BaseOverlay)).tag(sync=True, **widget_serialization)
     controls=List(Instance(BaseControl)).tag(sync=True, **widget_serialization)
