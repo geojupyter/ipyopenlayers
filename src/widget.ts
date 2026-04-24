@@ -10,7 +10,6 @@ import {
 import { LayerModel, LayerView } from './layer';
 import { BaseOverlayModel, BaseOverlayView } from './baseoverlay';
 import { BaseControlModel, BaseControlView } from './basecontrol';
-import { ViewObjectEventTypes } from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import MapBrowserEvent from 'ol/MapBrowserEvent';
 import { Map } from 'ol';
@@ -19,7 +18,6 @@ import 'ol/ol.css';
 import { MODULE_NAME, MODULE_VERSION } from './version';
 import '../css/widget.css';
 import { useGeographic } from 'ol/proj';
-import { ObjectEvent } from 'ol/Object';
 import { OSM } from 'ol/source';
 export * from './imageoverlay';
 export * from './geojson';
@@ -127,17 +125,20 @@ export class MapView extends DOMWidgetView {
       this.handleMapClick(event);
     });
 
-    this.map.getView().on('change:center', () => {
-      this.model.set('center', this.map.getView().getCenter());
+    this.map.on('moveend', () => {
+      const view = this.map.getView();
+      const zoom = view.getZoom();
+      const center = view.getCenter();
+
+      if (zoom !== undefined && zoom !== null) {
+        this.model.set('zoom', zoom);
+      }
+      if (center !== undefined && center !== null) {
+        this.model.set('center', center);
+      }
+
       this.model.save_changes();
     });
-
-    this.map
-      .getView()
-      .on('change:resolution' as ViewObjectEventTypes, (event: ObjectEvent) => {
-        this.model.set('zoom', this.map.getView().getZoom());
-        this.model.save_changes();
-      });
 
     this.layersChanged();
     this.overlayChanged();
@@ -171,15 +172,27 @@ export class MapView extends DOMWidgetView {
 
   zoomChanged() {
     const newZoom = this.model.get('zoom');
-    if (newZoom !== undefined && newZoom !== null) {
-      this.map.getView().setZoom(newZoom);
+    const view = this.map.getView();
+    const currentZoom = view.getZoom();
+
+    if (newZoom !== undefined && newZoom !== null && newZoom !== currentZoom) {
+      view.setZoom(newZoom);
     }
   }
 
   centerChanged() {
     const newCenter = this.model.get('center');
-    if (newCenter !== undefined && newCenter !== null) {
-      this.map.getView().setCenter(newCenter);
+    const view = this.map.getView();
+    const currentCenter = view.getCenter();
+
+    if (
+      newCenter !== undefined &&
+      newCenter !== null &&
+      (!currentCenter ||
+        currentCenter[0] !== newCenter[0] ||
+        currentCenter[1] !== newCenter[1])
+    ) {
+      view.setCenter(newCenter);
     }
   }
 
