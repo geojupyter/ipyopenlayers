@@ -143,7 +143,9 @@ ignore = [
    "D103",    # undocumented-public-function
    "D104",    # undocumented-public-package
    "D107",    # undocumented-public-init
+   "D203",    # Require blank line before class docstring
    "D205",    # missing-blank-line-after-summary
+   "D213",    # Require multi-line docstrings to start on the line after opening triple-quotes
    "D400",    # missing-trailing-period
    "D401",    # non-imperative-mood
    "D415",    # missing-terminal-punctuation
