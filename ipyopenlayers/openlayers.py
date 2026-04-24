@@ -108,6 +108,25 @@ class GeoJSON(Layer):
     style = Dict({}).tag(sync=True)
     visible = Bool(True).tag(sync=True)
 
+class Vector(Layer):
+    """Vector class for Vector data layers.
+
+    Attributes
+    ----------
+    data: dict
+        The Vector data for the layer.
+    style: dict
+        Style options for the Vector data.
+    visible: bool, default True
+        Whether the layer is visible or not.
+    """
+
+    _view_name  = Unicode('OpenLayersVectorView').tag(sync=True)
+    _model_name = Unicode('OpenLayersVectorModel').tag(sync=True)
+    data        = Dict({}).tag(sync=True)
+    style       = Dict({}).tag(sync=True)
+    visible     = Bool(True).tag(sync=True)
+
 
 class HeatmapLayer(Layer):
     """HeatmapLayer class for heatmap visualization.

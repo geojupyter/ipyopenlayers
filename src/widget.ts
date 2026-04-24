@@ -23,6 +23,7 @@ import { ObjectEvent } from 'ol/Object';
 import { OSM } from 'ol/source';
 export * from './imageoverlay';
 export * from './geojson';
+export * from './vector';
 export * from './video_overlay';
 export * from './popupoverlay';
 export * from './zoomslider';
