@@ -8,8 +8,7 @@ import pytest
 from traitlets import TraitError
 from ..openlayers import (
     Map, RasterTileLayer, GeoTIFFTileLayer, VectorTileLayer,
-    GeoJSON, HeatmapLayer, ImageOverlay, VideoOverlay,
-    PopupOverlay, ZoomSlider, FullScreen, ScaleLine, MousePosition
+    ImageOverlay, ZoomSlider, FullScreen, ScaleLine, MousePosition
 )
 
 def test_example_creation_blank():
