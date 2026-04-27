@@ -16,7 +16,7 @@ Example
         center=[0, 0],
         zoom=2,
         layout= Layout(width='800px', height='500px'))
-    )
+
     # Add layer
     layer=RasterTileLayer()
     m.add_layer(layer)
