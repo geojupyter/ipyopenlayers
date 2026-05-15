@@ -22,7 +22,7 @@ export class ScaleLineModel extends BaseControlModel {
 
   static serializers: ISerializers = {
     ...DOMWidgetModel.serializers,
-    // Ajoutez ici tous les sérialiseurs supplémentaires
+    // Add any extra serializers here
   };
 
   static model_name = 'ScaleLineModel';
