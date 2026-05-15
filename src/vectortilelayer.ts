@@ -98,7 +98,7 @@ export class VectorTileLayerView extends LayerView {
           break;
       }
 
-      const vectorTileSource = new VectorTileSource({
+      const vectorTileSource: VectorTileSource<any> = new VectorTileSource({
         format: format,
         url: newUrl,
         tileGrid: createXYZ({ maxZoom: 19 }),

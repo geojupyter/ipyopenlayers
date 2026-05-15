@@ -21,7 +21,7 @@ export class VideoOverlayModel extends BaseOverlayModel {
 
   static serializers: ISerializers = {
     ...DOMWidgetModel.serializers,
-    // Ajoutez ici tous les sérialiseurs supplémentaires
+    // Add any extra serializers here
   };
 
   static model_name = 'VideoOverlayModel';
