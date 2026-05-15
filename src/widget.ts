@@ -120,8 +120,8 @@ export class MapView extends DOMWidgetView {
       ],
     });
 
-    this.map.on('click', (event: MapBrowserEvent<MouseEvent>) => {
-      this.handleMapClick(event);
+    this.map.on('click', (event) => {
+      this.handleMapClick(event as MapBrowserEvent<PointerEvent>);
     });
 
     this.map.on('moveend', () => {
@@ -149,7 +149,7 @@ export class MapView extends DOMWidgetView {
     this.model.on('change:center', this.centerChanged, this);
   }
 
-  handleMapClick(event: MapBrowserEvent<MouseEvent>) {
+  handleMapClick(event: MapBrowserEvent<PointerEvent>) {
     const coordinate = event.coordinate;
     const [lon, lat] = coordinate;
     this.send({ type: 'click', lon, lat });

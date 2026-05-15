@@ -1,7 +1,7 @@
 // Copyright (c) QuantStack
 // Distributed under the terms of the Modified BSD License.
 import { DOMWidgetModel, ISerializers } from '@jupyter-widgets/base';
-import TileLayer from 'ol/layer/WebGLTile.js';
+import TileLayer from 'ol/layer/Tile.js';
 import XYZ from 'ol/source/XYZ.js';
 import { MODULE_NAME, MODULE_VERSION } from './version';
 import { MapView } from './widget';
@@ -74,5 +74,5 @@ export class RasterTileLayerView extends LayerView {
     }
   }
 
-  tileLayer: TileLayer;
+  tileLayer: TileLayer<XYZ>;
 }
