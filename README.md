@@ -59,7 +59,7 @@ conda activate ipyopenlayers-dev
 Install the python. This will also build the TS package.
 
 ```bash
-pip install -e ".[test, examples]"
+pip install -e . --group test --group examples
 ```
 
 When developing your extensions, you need to manually enable your extensions with the
