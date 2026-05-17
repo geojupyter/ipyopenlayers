@@ -40,11 +40,11 @@ def test_add_multiple_layers():
     m.add_layer(GeoTIFFTileLayer())
     m.add_layer(GeoZarrTileLayer())
     m.add_layer(VectorTileLayer())
-    assert len(m.layers) == 3
+    assert len(m.layers) == 4
     assert isinstance(m.layers[0], RasterTileLayer)
     assert isinstance(m.layers[1], GeoTIFFTileLayer)
     assert isinstance(m.layers[2], GeoZarrTileLayer)
-    assert isinstance(m.layers[2], VectorTileLayer)
+    assert isinstance(m.layers[3], VectorTileLayer)
 
 
 def test_remove_layer():
@@ -62,7 +62,7 @@ def test_clear_layers():
     m.add_layer(GeoTIFFTileLayer())
     m.add_layer(GeoZarrTileLayer())
     m.add_layer(VectorTileLayer())
-    assert len(m.layers) == 3
+    assert len(m.layers) == 4
     m.clear_layers()
     assert len(m.layers) == 0
 
