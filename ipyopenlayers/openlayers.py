@@ -68,6 +68,24 @@ class GeoTIFFTileLayer(Layer):
     url = Unicode("").tag(sync=True)
 
 
+class GeoZarrTileLayer(Layer):
+    """
+    GeoZarrTileLayer class for WebGL-based GeoZarr raster tiles.
+
+    Attributes
+    ----------
+    url: str, default ""
+        The URL for the WebGL-based GeoZarr tiles.
+    bands: list of int, default []
+        List of band indices to display from the GeoZarr dataset.
+    """
+
+    _model_name = Unicode("GeoZarrTileLayerModel").tag(sync=True)
+    _view_name = Unicode("GeoZarrTileLayerView").tag(sync=True)
+    url = Unicode("").tag(sync=True)
+    bands = List(Unicode()).tag(sync=True)
+
+
 class RasterTileLayer(TileLayer):
     """RasterTileLayer class for WebGL-based raster tiles.
 

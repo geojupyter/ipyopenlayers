@@ -1971,17 +1971,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bqplot-ui-tests@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "bqplot-ui-tests@workspace:."
-  dependencies:
-    "@jupyterlab/galata": ^5.0.1
-    "@playwright/test": ^1.32.0
-    "@types/klaw-sync": ^6.0.1
-    klaw-sync: ^6.0.0
-  languageName: unknown
-  linkType: soft
-
 "brace-expansion@npm:^2.0.1":
   version: 2.0.1
   resolution: "brace-expansion@npm:2.0.1"
@@ -2649,6 +2638,17 @@ __metadata:
   checksum: aa15f12cfd0ef5e38349744e3654bae649a34c3b10c77a674a167e99925d1549486c5b14730eebce9fea26f6db9d5e42097b00aa4f9f612e68c79121c71652dc
   languageName: node
   linkType: hard
+
+"ipyopenlayers-ui-tests@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ipyopenlayers-ui-tests@workspace:."
+  dependencies:
+    "@jupyterlab/galata": ^5.0.1
+    "@playwright/test": ^1.32.0
+    "@types/klaw-sync": ^6.0.1
+    klaw-sync: ^6.0.0
+  languageName: unknown
+  linkType: soft
 
 "is-fullwidth-code-point@npm:^3.0.0":
   version: 3.0.0

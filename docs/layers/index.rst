@@ -12,6 +12,7 @@ ipyopenlayers provides several types of layers for visualizing geographic data i
    heatmap
    geojson
    geotiff
+   geozarr
 
 
 .. automodule:: ipyopenlayers.openlayers.Layer

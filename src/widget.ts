@@ -30,6 +30,7 @@ export * from './mouseposition';
 export * from './heatmap';
 export * from './rastertilelayer';
 export * from './geotifflayer';
+export * from './geozarrlayer';
 export * from './vectortilelayer';
 
 const DEFAULT_LOCATION = [0.0, 0.0];
