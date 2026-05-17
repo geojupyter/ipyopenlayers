@@ -69,8 +69,7 @@ class GeoTIFFTileLayer(Layer):
 
 
 class GeoZarrTileLayer(Layer):
-    """
-    GeoZarrTileLayer class for WebGL-based GeoZarr raster tiles.
+    """GeoZarrTileLayer class for WebGL-based GeoZarr raster tiles.
 
     Attributes
     ----------
@@ -78,6 +77,7 @@ class GeoZarrTileLayer(Layer):
         The URL for the WebGL-based GeoZarr tiles.
     bands: list of int, default []
         List of band indices to display from the GeoZarr dataset.
+
     """
 
     _model_name = Unicode("GeoZarrTileLayerModel").tag(sync=True)
