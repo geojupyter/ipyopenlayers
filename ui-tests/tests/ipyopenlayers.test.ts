@@ -84,7 +84,7 @@ const testPlotUpdates = async (page: IJupyterLabPageFixture, tmpPath: string, th
         if (cell) {
           const map = await cell.$("div.ol-container");
           if (map) {
-            await new Promise((_) => setTimeout(_, 100000));
+            await new Promise((_) => setTimeout(_, 10000));
           }
           results.push(await cell.screenshot());
           cellCount++;
