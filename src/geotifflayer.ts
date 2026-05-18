@@ -40,25 +40,24 @@ export class GeoTIFFTileLayerView extends LayerView {
     this.model.on('change:url', this.sourcesChanged, this);
   }
 
-  create_obj() {
-    const url = this.model.get('url');
+  create_obj(): void {
+    this.obj = new WebGLTileLayer({
+      source: this.createSource(),
+    });
+  }
 
+  createSource() {
+    const url = this.model.get('url');
     if (url) {
-      this.obj = new WebGLTileLayer({
-        source: new GeoTIFF({
-          sources: [{ url: url }],
-        }),
+      return new GeoTIFF({
+        sources: [{ url: url }],
       });
     }
   }
   sourcesChanged() {
-    const newUrl = this.model.get('url');
-
-    if (newUrl) {
-      const newSource = new GeoTIFF({
-        sources: [{ url: newUrl }],
-      });
-      this.obj.setSource(newSource);
+    const newUrl = this.createSource();
+    if (newUrl && this.obj) {
+      this.obj.setSource(newUrl);
     }
   }
 
