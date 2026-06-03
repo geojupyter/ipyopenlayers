@@ -20,11 +20,11 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: jupyterlab/maintainer-tools/.github/actions/update-snapshots-checkout@f5d710df1483f19b666dd96aeabbe949a53642c2  # v1
+      - uses: jupyterlab/maintainer-tools/.github/actions/update-snapshots-checkout@95d85449e4f3f352e261221f6529f8ed307f5728  # v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: jupyterlab/maintainer-tools/.github/actions/base-setup@f5d710df1483f19b666dd96aeabbe949a53642c2  # v1
+      - uses: jupyterlab/maintainer-tools/.github/actions/base-setup@95d85449e4f3f352e261221f6529f8ed307f5728  # v1
 
       - name: Install
         run: pip install jupyterlab==4 .
@@ -38,7 +38,7 @@ jobs:
           jlpm install
           jlpm playwright install
 
-      - uses: jupyterlab/maintainer-tools/.github/actions/update-snapshots@f5d710df1483f19b666dd96aeabbe949a53642c2  # v1
+      - uses: jupyterlab/maintainer-tools/.github/actions/update-snapshots@95d85449e4f3f352e261221f6529f8ed307f5728  # v1
         with:
           npm_client: jlpm
           browser: chromium
