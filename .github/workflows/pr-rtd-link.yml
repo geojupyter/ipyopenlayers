@@ -1,0 +1,25 @@
+# The ReadTheDocs preview link is "hidden" within the GitHub "Checks"
+# interface. For users who don"t know this, finding the preview link may be
+# very difficult or frustrating. This workflow makes the link more
+# findable by updating PR descriptions to include it.
+name: "Add ReadTheDocs preview link to PR description"
+
+on:
+  pull_request_target:
+    types:
+      - "opened"
+
+
+permissions:
+  pull-requests: "write"
+
+jobs:
+  autolink-rtd-previews:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "readthedocs/actions/preview@b8bba1484329bda1a3abe986df7ebc80a8950333" # v1
+        with:
+          project-slug: "ipyopenlayers"
+          message-template: |
+            ---
+            :mag: Docs preview: {docs-pr-index-url}
